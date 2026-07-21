@@ -1,0 +1,258 @@
+/* ============================================
+   GÜN 2 - CSS: Box Model, Flexbox, Grid, Responsive
+   ============================================ */
+
+/* --- Box model: box-sizing'i border-box yapmak, padding/border'ın
+   genişlik hesabını bozmaması için standart bir tercih --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --renk-ana: #1a1a2e;
+  --renk-vurgu: #4361ee;
+  --renk-arkaplan: #f7f7fb;
+  --renk-kart: #ffffff;
+  --renk-metin: #2b2d42;
+  --renk-metin-soluk: #6c757d;
+  --radius: 10px;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background-color: var(--renk-arkaplan);
+  color: var(--renk-metin);
+  line-height: 1.6;
+}
+
+/* ---------- HEADER ---------- */
+header {
+  background-color: var(--renk-ana);
+  color: #fff;
+  padding: 32px 24px 16px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 4px;
+}
+
+header p {
+  color: #c7c9e8;
+  margin-bottom: 20px;
+}
+
+/* Flexbox: nav linklerini yatayda ortalayıp eşit boşluklu diz */
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 24px;
+  list-style: none;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  border-bottom-color: var(--renk-vurgu);
+}
+
+/* ---------- MAIN / SECTION genel düzeni ---------- */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+section {
+  background-color: var(--renk-kart);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+section h2 {
+  color: var(--renk-ana);
+  margin-bottom: 16px;
+  font-size: 1.4rem;
+  border-left: 4px solid var(--renk-vurgu);
+  padding-left: 12px;
+}
+
+/* ---------- Eğitim listesi ---------- */
+#egitim ul {
+  list-style: none;
+}
+
+#egitim li {
+  padding: 4px 0;
+  color: var(--renk-metin-soluk);
+}
+
+/* ---------- Tablo ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  color: var(--renk-metin-soluk);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* ---------- Projeler: CSS Grid ile kart düzeni ----------
+   #projeler'in kendisi grid container. İçindeki h2 başlığı tam genişlik
+   kaplasın diye grid-column ile tüm sütunlara yayıyoruz, her <article>
+   ise otomatik olarak bir grid item (kart) oluyor. */
+#projeler {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+#projeler h2 {
+  grid-column: 1 / -1;
+}
+
+#projeler > article {
+  background-color: var(--renk-arkaplan);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+}
+
+#projeler article h3 {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+  color: var(--renk-ana);
+}
+
+#projeler article p {
+  color: var(--renk-metin-soluk);
+  font-size: 0.95rem;
+}
+
+/* ---------- Sertifikalar ---------- */
+#sertifikalar ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+#sertifikalar li {
+  padding: 3px 0;
+}
+
+/* ---------- İletişim formu ---------- */
+#iletisim form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 480px;
+  margin-bottom: 20px;
+}
+
+#iletisim label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+
+#iletisim input,
+#iletisim textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d7d9e0;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+#iletisim input:focus,
+#iletisim textarea:focus {
+  outline: 2px solid var(--renk-vurgu);
+  outline-offset: 1px;
+}
+
+#iletisim button {
+  align-self: flex-start;
+  background-color: var(--renk-vurgu);
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#iletisim button:hover {
+  background-color: #324ed1;
+}
+
+#iletisim p {
+  color: var(--renk-metin-soluk);
+  font-size: 0.95rem;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center;
+  padding: 24px;
+  color: var(--renk-metin-soluk);
+  font-size: 0.85rem;
+}
+
+/* ============================================
+   RESPONSIVE: media query
+   ============================================ */
+
+/* Tablet ve altı: bölüm iç boşluklarını daralt */
+@media (max-width: 768px) {
+  main {
+    padding: 24px 16px;
+  }
+
+  section {
+    padding: 20px 20px;
+  }
+
+  header h1 {
+    font-size: 1.6rem;
+  }
+}
+
+/* Telefon: nav linklerini alt alta diz, tabloyu daha kompakt yap */
+@media (max-width: 480px) {
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  th, td {
+    padding: 8px 6px;
+    font-size: 0.9rem;
+  }
+
+  #projeler {
+    grid-template-columns: 1fr;
+  }
+}
