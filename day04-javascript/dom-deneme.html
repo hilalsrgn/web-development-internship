@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Deneme</title>
+</head>
+<body>
+
+  <button id="selamButon">Selam Ver</button>
+  <p id="cikti"></p>
+
+  <script>
+    const cikti = document.getElementById("cikti");
+    const buton = document.getElementById("selamButon");
+    buton.addEventListener("click", function() {
+      cikti.textContent = "Merhaba Dünya!";
+    });
+  </script>
+
+</body>
+</html>

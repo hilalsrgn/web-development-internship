@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fetch Deneme</title>
+</head>
+<body>
+
+  <script>
+    async function githubKullanicisiGetir() {
+      try {
+        const cevap = await fetch("https://api.github.com/users/octocat");
+        const veri = await cevap.json();
+        console.log(veri);
+      } catch (hata) {
+        console.log("Hata oluştu:", hata);
+      }
+    }
+
+    githubKullanicisiGetir();
+  </script>
+
+</body>
+</html>

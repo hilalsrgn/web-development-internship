@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Doğrulama Deneme</title>
+</head>
+<body>
+
+  <form id="benimForm">
+    <input type="text" id="isim" placeholder="İsminiz">
+    <button type="submit">Gönder</button>
+  </form>
+  <p id="hataMesaji" style="color: red;"></p>
+
+  <script>
+    const form = document.getElementById("benimForm");
+    const hataMesaji = document.getElementById("hataMesaji");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const isimDegeri = document.getElementById("isim").value;
+
+      if (isimDegeri === "") {
+        hataMesaji.textContent = "İsim alanı boş bırakılamaz!";
+      } else {
+        hataMesaji.textContent = "";
+        alert("Form başarıyla gönderildi: " + isimDegeri);
+      }
+    });
+  </script>
+
+</body>
+</html>
