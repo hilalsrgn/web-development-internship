@@ -1,0 +1,52 @@
+# ✨ Yapılacaklar Listesi (Todo App)
+
+Modern, renkli ve tamamen işlevsel bir Todo (yapılacaklar listesi) uygulaması. Görev ekleme, önceliklendirme, tamamlama, silme ve filtreleme özelliklerine sahiptir. Veriler tarayıcının `localStorage`'ında saklanır, bu sayede sayfa yenilense bile görevler kaybolmaz.
+
+## 🔗 Canlı Demo
+
+[Canlı demoyu görüntüle](#) <!-- Deploy ettikten sonra linki buraya ekle -->
+
+## 📸 Ekran Görüntüsü
+
+![alt text](image.png)
+
+## 🚀 Özellikler
+
+- ➕ Görev ekleme
+- 🎯 Öncelik seviyesi belirleme (Düşük / Orta / Yüksek — renkli rozetlerle gösterilir)
+- ✅ Görevi tamamlandı olarak işaretleme
+- 🗑️ Görev silme
+- 🔍 Filtreleme (Tümü / Bekleyen / Tamamlanan)
+- 💾 `localStorage` ile kalıcı veri saklama (sayfa yenilense bile veriler kaybolmaz)
+- 📱 Responsive tasarım
+- 🎨 Modern, gradient temalı arayüz
+
+## 🛠️ Kullanılan Teknolojiler
+
+- HTML5
+- Tailwind CSS (CDN)
+- Vanilla JavaScript (ES6+)
+- localStorage API
+
+## 📂 Proje Yapısı
+
+## ⚙️ Kurulum ve Çalıştırma
+
+1. Bu depoyu klonlayın veya indirin
+2. `day05-todo-projesi` klasörüne gidin
+3. `index.html` dosyasını bir tarayıcıda açın (veya VS Code'da Live Server eklentisiyle çalıştırın)
+
+Herhangi bir kurulum veya bağımlılık gerekmez — proje tamamen istemci taraflıdır (client-side).
+
+## 🧠 Neler Öğrendim
+
+Bu proje kapsamında şunları uyguladım:
+- DOM manipülasyonu (`getElementById`, `querySelectorAll`, `createElement`, `appendChild`)
+- Event handling ve event delegation
+- Dizi metodları: `.filter()`, `.map()`, `.forEach()`
+- `localStorage` ile veri kalıcılığı (`JSON.stringify` / `JSON.parse`)
+- Tailwind CSS ile responsive ve modern arayüz tasarımı
+
+## 👤 Geliştiren
+
+Hilal SARGIN — Web Geliştirme Stajı, Gün 5

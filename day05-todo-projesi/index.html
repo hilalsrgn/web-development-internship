@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo Uygulaması</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 min-h-screen py-10 px-4">
+
+  <div class="max-w-lg mx-auto bg-white/95 backdrop-blur rounded-2xl shadow-2xl p-8">
+
+    <h1 class="text-3xl font-extrabold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+      ✨ Yapılacaklar Listesi
+    </h1>
+    <p class="text-gray-500 text-sm mb-6">Günü organize et, bir bir tamamla.</p>
+
+    <!-- GÖREV EKLEME FORMU -->
+    <form id="gorevForm" class="flex gap-2 mb-4">
+      <input
+        type="text"
+        id="gorevInput"
+        placeholder="Yeni görev ekle..."
+        class="flex-1 border-2 border-gray-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-transparent transition"
+      >
+      <select id="oncelikSelect" class="border-2 border-gray-200 rounded-xl px-2 py-2 focus:outline-none focus:ring-2 focus:ring-pink-400">
+        <option value="dusuk">🟢 Düşük</option>
+        <option value="orta" selected>🟡 Orta</option>
+        <option value="yuksek">🔴 Yüksek</option>
+      </select>
+      <button type="submit" class="bg-gradient-to-r from-purple-500 to-pink-500 hover:opacity-90 text-white px-5 py-2 rounded-xl font-semibold shadow-md transition">
+        Ekle
+      </button>
+    </form>
+
+    <!-- FİLTRE BUTONLARI -->
+    <div class="flex gap-2 mb-4">
+      <button data-filtre="tumu" class="filtre-buton bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm px-4 py-1 rounded-full font-medium transition">Tümü</button>
+      <button data-filtre="bekleyen" class="filtre-buton bg-gray-100 text-gray-600 text-sm px-4 py-1 rounded-full font-medium transition hover:bg-gray-200">Bekleyen</button>
+      <button data-filtre="tamamlanan" class="filtre-buton bg-gray-100 text-gray-600 text-sm px-4 py-1 rounded-full font-medium transition hover:bg-gray-200">Tamamlanan</button>
+    </div>
+
+    <!-- GÖREV LİSTESİ -->
+    <ul id="gorevListesi" class="flex flex-col gap-2"></ul>
+
+    <!-- BOŞ DURUM MESAJI -->
+    <div id="bosMesaj" class="text-center mt-8 hidden">
+      <p class="text-4xl mb-2">📭</p>
+      <p class="text-gray-400">Henüz görev yok, ilk görevini ekle!</p>
+    </div>
+
+    <!-- SAYAÇ -->
+    <p id="sayac" class="text-sm text-gray-500 mt-4 text-center"></p>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
