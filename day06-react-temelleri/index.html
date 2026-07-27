@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>React Temelleri</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+
+  <div id="root"></div>
+
+  <script type="text/babel">
+
+    function FilmKarti(props) {
+      const isim = props.isim;
+      const posterYolu = props.posterYolu;
+
+      return React.createElement(
+        "div",
+        { style: { border: "1px solid #ccc", padding: "10px", margin: "10px", display: "inline-block", width: "200px" } },
+        React.createElement("img", {
+          src: "https://image.tmdb.org/t/p/w200" + posterYolu,
+          style: { width: "100%" }
+        }),
+        React.createElement("h3", null, isim)
+      );
+    }
+
+    function App() {
+      const state = React.useState([]);
+      const filmler = state[0];
+      const setFilmler = state[1];
+
+      React.useEffect(function() {
+        async function filmleriCek() {
+          const apiKey = "e502a3e38116e20db08d66f4123c4961";
+          const cevap = await fetch(
+            "https://api.themoviedb.org/3/movie/popular?api_key=" + apiKey + "&language=tr-TR"
+          );
+          const veri = await cevap.json();
+          setFilmler(veri.results);
+        }
+        filmleriCek();
+      }, []);
+
+      const kartlar = filmler.map(function(film) {
+        return React.createElement(FilmKarti, {
+          key: film.id,
+          isim: film.title,
+          posterYolu: film.poster_path
+        });
+      });
+
+      return React.createElement(
+        "div",
+        null,
+        React.createElement("h1", null, "Popüler Filmler"),
+        kartlar
+      );
+    }
+
+    const kok = ReactDOM.createRoot(document.getElementById("root"));
+    kok.render(React.createElement(App));
+
+  </script>
+
+</body>
+</html>
