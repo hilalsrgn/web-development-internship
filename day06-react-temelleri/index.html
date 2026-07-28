@@ -27,40 +27,57 @@
         React.createElement("h3", null, isim)
       );
     }
+function App() {
+  const filmState = React.useState([]);
+  const filmler = filmState[0];
+  const setFilmler = filmState[1];
 
-    function App() {
-      const state = React.useState([]);
-      const filmler = state[0];
-      const setFilmler = state[1];
+  const aramaState = React.useState("");
+  const aramaMetni = aramaState[0];
+  const setAramaMetni = aramaState[1];
 
-      React.useEffect(function() {
-        async function filmleriCek() {
-          const apiKey = "e502a3e38116e20db08d66f4123c4961";
-          const cevap = await fetch(
-            "https://api.themoviedb.org/3/movie/popular?api_key=" + apiKey + "&language=tr-TR"
-          );
-          const veri = await cevap.json();
-          setFilmler(veri.results);
-        }
-        filmleriCek();
-      }, []);
+  React.useEffect(function() {
+    async function filmleriCek() {
+      const apiKey = "e502a3e38116e20db08d66f4123c4961";
 
-      const kartlar = filmler.map(function(film) {
-        return React.createElement(FilmKarti, {
-          key: film.id,
-          isim: film.title,
-          posterYolu: film.poster_path
-        });
-      });
+      let adres;
+      if (aramaMetni === "") {
+        adres = "https://api.themoviedb.org/3/movie/popular?api_key=" + apiKey + "&language=tr-TR";
+      } else {
+        adres = "https://api.themoviedb.org/3/search/movie?api_key=" + apiKey + "&language=tr-TR&query=" + aramaMetni;
+      }
 
-      return React.createElement(
-        "div",
-        null,
-        React.createElement("h1", null, "Popüler Filmler"),
-        kartlar
-      );
+      const cevap = await fetch(adres);
+      const veri = await cevap.json();
+      setFilmler(veri.results);
     }
+    filmleriCek();
+  }, [aramaMetni]);
 
+  const kartlar = filmler.map(function(film) {
+    return React.createElement(FilmKarti, {
+      key: film.id,
+      isim: film.title,
+      posterYolu: film.poster_path
+    });
+  });
+
+  return React.createElement(
+    "div",
+    null,
+    React.createElement("h1", null, "Popüler Filmler"),
+    React.createElement("input", {
+      type: "text",
+      value: aramaMetni,
+      onChange: function(event) { setAramaMetni(event.target.value); },
+      placeholder: "Film ara...",
+      style: { padding: "8px", marginBottom: "16px", width: "250px" }
+    }),
+    filmler.length === 0
+      ? React.createElement("p", null, "Aradığınız filme uygun sonuç bulunamadı.")
+      : kartlar
+  );
+}
     const kok = ReactDOM.createRoot(document.getElementById("root"));
     kok.render(React.createElement(App));
 
