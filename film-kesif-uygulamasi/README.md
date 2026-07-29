@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🎬 FilmKeşif
 
-## Getting Started
+TMDb (The Movie Database) API'sini kullanan, popüler filmleri listeleyen, gerçek zamanlı arama yapabilen ve her film için detaylı bilgi sunan bir film keşif uygulaması.
 
-First, run the development server:
+## 🔗 Canlı Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+[FilmKeşif'i ziyaret et](https://web-development-internship-two.vercel.app/)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🚀 Özellikler
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- 🎥 Popüler filmlerin listelenmesi
+- 🔍 Gerçek zamanlı, TMDb'nin tüm veritabanında arama
+- 📄 Her film için ayrı, dynamic route ile oluşturulan detay sayfası (poster, özet, çıkış tarihi)
+- ⏳ Loading ve hata durumu yönetimi
+- 🎨 Koyu tema, sinema temalı modern arayüz
+- 📱 Responsive tasarım
 
-## Learn More
+## 🛠️ Kullanılan Teknolojiler
 
-To learn more about Next.js, take a look at the following resources:
+- Next.js 16 (App Router)
+- React (useState, useEffect, useParams)
+- Tailwind CSS
+- TMDb API
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📂 Proje Yapısı
+## ⚙️ Kurulum ve Çalıştırma
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Bu depoyu klonlayın
+2. `film-kesif-uygulamasi` klasörüne gidin
+3. Bağımlılıkları yükleyin: `npm install`
+4. Kök dizinde `.env.local` dosyası oluşturup TMDb API anahtarınızı ekleyin:
+5. Geliştirme sunucusunu başlatın: `npm run dev`
+6. Tarayıcıda `http://localhost:3000` adresini açın
 
-## Deploy on Vercel
+## 🧠 Neler Öğrendim
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Bu proje kapsamında şunları uyguladım:
+- React component mantığı, JSX, props, state (`useState`)
+- `useEffect` ile API entegrasyonu ve yaşam döngüsü yönetimi
+- Controlled input ile form yönetimi ve koşullu render
+- Next.js App Router ile dosya tabanlı routing
+- Dynamic route (`[id]`) ile parametrik sayfa oluşturma
+- Server/Client Component ayrımı
+- Ortam değişkenleri (environment variables) ile güvenli API key yönetimi
+- Vercel üzerinde canlıya alma (deployment)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 👤 Geliştiren
+
+Hilal Sargın — Web Geliştirme Stajı
