@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { useState, useEffect } from "react";
 
 export default function Home() {
@@ -61,17 +61,20 @@ export default function Home() {
       ) : (
         <div className="flex flex-wrap gap-4">
           {filmler.map(function (film) {
+
             return (
               <a
                 key={film.id}
                 href={"/film/" + film.id}
                 className="bg-neutral-800 rounded p-3 w-40 block hover:scale-105 hover:shadow-lg hover:shadow-red-900/30 transition transform"
               >
-                <img
-                  src={"https://image.tmdb.org/t/p/w200" + film.poster_path}
-                  alt={film.title}
-                  className="w-full rounded mb-2"
-                />
+                <Image
+             src={"https://image.tmdb.org/t/p/w200" + film.poster_path}
+             alt={film.title}
+             width={200}
+             height={300}
+             className="w-full rounded mb-2"
+/>
                 <p className="text-sm font-medium text-neutral-200">{film.title}</p>
               </a>
             );
