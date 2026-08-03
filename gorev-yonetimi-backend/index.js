@@ -10,6 +10,11 @@ app.use(function (req, res, next) {
 });
 app.use("/api/gorevler", gorevRoutes);
 
+app.use(function (err, req, res, next) {
+  console.error(err.stack);
+  res.status(500).json({ hata: "Sunucuda beklenmedik bir hata oluştu." });
+});
+
 app.listen(port, function () {
   console.log("Sunucu " + port + " portunda çalışıyor");
 });
