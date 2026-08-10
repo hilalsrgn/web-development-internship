@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+/*
+  Renk paleti: tipik "AI SaaS" mor-mavi gradyanından bilinçli olarak kaçınıldı.
+  Bunun yerine sıcak, kağıt tonlu bir zemin + toprak tonu bir vurgu rengi (kil/terracotta)
+  kullanılıyor — bir butik/mağaza kimliğine daha çok benziyor.
+*/
+:root {
+  --paper: #faf6f0;
+  --paper-raised: #ffffff;
+  --ink: #211d17;
+  --ink-muted: #6b6255;
+  --border: #e6ddcf;
+
+  --clay: #b6482f;
+  --clay-dark: #93381f;
+  --clay-tint: #f4e2da;
+
+  --gold: #b8862e;
+  --forest: #33513f;
+
+  --danger: #b3261e;
+  --success: #2f6844;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-raised: var(--paper-raised);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-border: var(--border);
+
+  --color-clay: var(--clay);
+  --color-clay-dark: var(--clay-dark);
+  --color-clay-tint: var(--clay-tint);
+
+  --color-gold: var(--gold);
+  --color-forest: var(--forest);
+  --color-danger: var(--danger);
+  --color-success: var(--success);
+
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-inter);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #17140f;
+    --paper-raised: #1f1b14;
+    --ink: #f2ece0;
+    --ink-muted: #a89e8c;
+    --border: #332c21;
+
+    --clay: #d9714f;
+    --clay-dark: #e8926f;
+    --clay-tint: #3a241c;
+
+    --gold: #d4a94a;
+    --forest: #6ea888;
+  }
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
