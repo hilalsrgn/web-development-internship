@@ -4,6 +4,8 @@ import { connectDB } from "@/lib/db";
 import { Product } from "@/models/Product";
 import AddToCartButton from "@/components/AddToCartButton";
 
+export const dynamic = "force-dynamic";
+
 interface PageProps {
   params: Promise<{ slug: string }>;
 }

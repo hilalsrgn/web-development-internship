@@ -3,6 +3,10 @@ import { connectDB } from "@/lib/db";
 import { Order } from "@/models/Order";
 import { getCurrentUser } from "@/lib/auth";
 
+// admin/layout.tsx'teki notla aynı sebep: bu sayfa kullanıcıya özel,
+// canlı veri gösteriyor — build zamanında statik olarak üretilmemeli.
+export const dynamic = "force-dynamic";
+
 const currency = new Intl.NumberFormat("tr-TR", {
   style: "currency",
   currency: "TRY",

@@ -23,6 +23,13 @@ export const metadata: Metadata = {
   description: "Staj final projesi — Next.js, MongoDB ve JWT ile mini e-ticaret uygulaması.",
 };
 
+// Kök layout her sayfada oturum bilgisini (cookie) okuyor — bu yüzden
+// zaten hiçbir sayfa gerçek anlamda "statik" olamaz. Bunu açıkça
+// belirtmek, Next.js'in bazı sayfaları yine de build anında statik
+// üretmeye çalışıp veritabanına erişemediği için build'i patlatmasını
+// (bkz. Gün 8 raporu — /admin sayfasında yaşandı) baştan engelliyor.
+export const dynamic = "force-dynamic";
+
 export default async function RootLayout({ children }: LayoutProps<"/">) {
   // .env.local henüz kurulmadıysa (MONGODB_URI yoksa) tüm siteyi
   // çökertmek yerine, navbar'ı "çıkış yapılmış" gibi göstermeyi tercih

@@ -3,6 +3,8 @@ import { connectDB } from "@/lib/db";
 import { Order } from "@/models/Order";
 import { getCurrentUser } from "@/lib/auth";
 
+export const dynamic = "force-dynamic";
+
 const currency = new Intl.NumberFormat("tr-TR", {
   style: "currency",
   currency: "TRY",

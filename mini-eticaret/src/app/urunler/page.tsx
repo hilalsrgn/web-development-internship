@@ -4,6 +4,10 @@ import { Category } from "@/models/Category";
 import ProductFilters from "@/components/ProductFilters";
 import ProductCard, { ProductCardData } from "@/components/ProductCard";
 
+// Stok/fiyat gibi sık değişen canlı veri gösteriyor — build zamanında
+// statik üretilmesin, her istekte veritabanından taze veri çeksin.
+export const dynamic = "force-dynamic";
+
 interface PageProps {
   searchParams: Promise<{ category?: string; q?: string }>;
 }

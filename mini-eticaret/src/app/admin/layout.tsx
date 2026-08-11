@@ -3,6 +3,15 @@ import Link from "next/link";
 // Bu sayfaların altına giren herkesin admin olduğunu src/proxy.ts zaten
 // garanti ediyor (bkz. ADMIN_PREFIX kontrolü) — burada tekrar kontrol
 // etmiyoruz, proxy tek yetkili nokta.
+//
+// "force-dynamic": admin sayfaları her zaman veritabanından canlı veri
+// çekiyor (ürün/sipariş sayıları, listeler). Bu olmadan Next.js build
+// sırasında bu sayfaları statik olarak önceden oluşturmaya çalışıyor —
+// build makinesi veritabanına ulaşamadığında (ya da ulaşsa bile o anki
+// veri build zamanına donup kalacağı için) bu yanlış olurdu. Bu satır
+// alt klasörlerdeki (urunler, kategoriler, siparisler) tüm sayfalara da
+// uygulanıyor.
+export const dynamic = "force-dynamic";
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-8 sm:py-12 lg:flex-row lg:gap-8">
