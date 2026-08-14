@@ -30,6 +30,13 @@ export default function ProductCard({ product }: { product: ProductCardData }) {
             alt={product.name}
             fill
             sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+            // Vercel'in görsel optimizasyon servisi Unsplash'ten (örnek
+            // katalog görselleri) görsel çekerken "INVALID_IMAGE_OPTIMIZE_
+            // REQUEST" hatası veriyor — muhtemelen Unsplash, sunucudan
+            // sunucuya yapılan bu istekleri engelliyor. Vercel Blob
+            // (gerçek admin yüklemeleri) için optimizasyon sorunsuz
+            // çalışıyor, sadece dış kaynaklı görsellerde atlıyoruz.
+            unoptimized={!image.includes("vercel-storage.com")}
             className="object-cover transition-transform duration-300 group-hover:scale-105"
           />
         ) : (

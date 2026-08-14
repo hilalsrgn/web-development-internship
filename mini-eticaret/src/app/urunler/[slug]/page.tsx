@@ -42,6 +42,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
               fill
               sizes="(min-width: 1024px) 40vw, 90vw"
               priority
+              unoptimized={!image.includes("vercel-storage.com")}
               className="object-cover"
             />
           ) : (
