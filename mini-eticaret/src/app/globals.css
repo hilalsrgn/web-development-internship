@@ -1,9 +1,11 @@
 @import "tailwindcss";
 
 /*
-  Renk paleti: tipik "AI SaaS" mor-mavi gradyanından bilinçli olarak kaçınıldı.
-  Bunun yerine sıcak, kağıt tonlu bir zemin + toprak tonu bir vurgu rengi (kil/terracotta)
-  kullanılıyor — bir butik/mağaza kimliğine daha çok benziyor.
+  Renk paleti: sıcak, kağıt tonlu bir zemin korunuyor ama vurgu rengi artık
+  kobalt mavi — katalog teknoloji ürünlerine döndüğü için toprak/kil tonu
+  yerine daha "dijital/güvenilir" hisseden bir renk daha oturuyor. Değişken
+  adları hâlâ "clay" (kod genelinde bg-clay, text-clay-dark gibi onlarca
+  yerde kullanılıyor) ama artık mavi bir tonu temsil ediyor.
 */
 :root {
   --paper: #faf6f0;
@@ -12,9 +14,9 @@
   --ink-muted: #6b6255;
   --border: #e6ddcf;
 
-  --clay: #b6482f;
-  --clay-dark: #93381f;
-  --clay-tint: #f4e2da;
+  --clay: #2952cc;
+  --clay-dark: #1f3d99;
+  --clay-tint: #e1e8fa;
 
   --gold: #b8862e;
   --forest: #33513f;
@@ -51,9 +53,9 @@
     --ink-muted: #a89e8c;
     --border: #332c21;
 
-    --clay: #d9714f;
-    --clay-dark: #e8926f;
-    --clay-tint: #3a241c;
+    --clay: #6b8cff;
+    --clay-dark: #8fa8ff;
+    --clay-tint: #1a2340;
 
     --gold: #d4a94a;
     --forest: #6ea888;
