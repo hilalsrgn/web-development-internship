@@ -11,6 +11,12 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "*.public.blob.vercel-storage.com",
       },
+      {
+        // Örnek ürün kataloğu için Unsplash'ten gerçek ürün fotoğrafları
+        // kullanıldı — admin yüklemeleri yine Vercel Blob'a gidiyor.
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
     ],
   },
 };
